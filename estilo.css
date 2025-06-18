@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap');
+
+:root {
+    --azul: #2A4DD0;
+    --verde: #4CA154;
+    --negro: #111729;
+    --azul-oscuro: #223344;
+    --gris: #909193;
+    --fondo: #F2F9FE;
+    --blanco: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--fondo);
+}
+
+.oscuro {
+    color: var(--blanco) !important;
+    background-color: var(--negro);
+}
+
+.oscuro .logo {
+    filter: brightness(10);
+}
+
+.oscuro .icono {
+    filter: brightness(10);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+header .enlaces-menu a {
+    color: var(--gris);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+header .enlaces-menu a.activo {
+    color: var(--azul-oscuro);
+}
+
+.oscuro header .enlaces-menu a.activo {
+    color: var(--blanco);
+}
+
+header .enlaces-menu a:not(:last-child) {
+    margin-right: 25px;
+}
+
+.interruptor-tema {
+    display: flex;
+}
+
+.interruptor-tema input {
+    visibility: none;
+    width: 0;
+    height: 0;
+}
+
+.interruptor-tema label {
+    background-color: var(--azul-oscuro);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    padding: 2px 3px;
+    width: 50px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.interruptor-tema label:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: var(--blanco);
+    border-radius: 100%;
+    transition: 0.3s;
+}
+
+.interruptor-tema input:checked + label:after {
+    transform: translateX(-100%);
+    left: 48px;
+}
+
+.interruptor-tema label img {
+    position: absolute;
+    width: 18px;
+    top: 4px;
+    z-index: 100;
+}
+
+.interruptor-tema label img.sol {
+    right: 3px;
+    transition: 0.3s;
+}
+
+.interruptor-tema label img.luna {
+    transition: 0.3s;
+    filter: brightness(10);
+}
+
+.interruptor-tema input:not(:checked) + label img.luna {
+    filter: brightness(0);
+}
+
+.interruptor-tema input:not(:checked) + label img.sol {
+    filter: brightness(10);
+}
+
+.menu-movil {
+    display: none;
+} 
+
+.boton-menu {
+    display: none;
+}
+
+.contenedor {
+    padding: 50px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.contenedor-texto {
+    width: 50%;
+}
+
+.contenedor-texto .emoji {
+    color: var(--azul-oscuro);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.oscuro .contenedor-texto .emoji {
+    color: var(--blanco);
+}
+
+.contenedor-texto .titulo {
+    color: var(--azul-oscuro);
+    font-weight: 800;
+    margin-bottom: 30px;
+    font-size: 64px;
+}
+
+.oscuro .contenedor-texto .titulo {
+    color: var(--blanco);
+}
+
+.contenedor-texto .subtitulo {
+    color: var(--gris);
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.oscuro .contenedor-texto .subtitulo {
+    color: var(--gris);
+}
+
+.fila {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.grupo-botones {
+    margin-bottom: 30px;
+}
+
+.contenedor-img {
+    width: 50%;
+}
+
+.contenedor-img img {
+    width: 100%;
+}
+
+.grupo-botones .boton {
+    color: var(--blanco);
+    background: var(--azul);
+    border-radius: 15px;
+    padding: 15px 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.grupo-botones .boton-enlace {
+    color: var(--azul);
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 18px;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
+.soporte {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.soporte p {
+    color: var(--gris);
+    font-weight: 500;
+}
+
+.oscuro .soporte p {
+    color: var(--gris);
+}
+
+@media (max-width: 1024px) {
+    header {
+        padding: 10px 25px;
+    }
+
+    .contenedor {
+        padding: 40px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .oculto-m {
+        display: none;
+    }
+
+    .menu-movil {
+        display: flex;
+        flex-direction: column;
+        background: var(--blanco);
+        position: fixed;
+        top: 0;
+        right: -500px;
+        width: 70%;
+        height: 100vh;
+        transition: .3s;
+    }
+
+    .oscuro .menu-movil {
+        background-color: var(--negro);
+        box-shadow: -3px 0px 7px rgba(255, 255, 255, .1);
+    }
+
+    .menu-movil .enlaces-menu {
+        display: flex;
+        flex-direction: column !important;
+        gap: 20px;
+        margin: 100px auto 20px;
+    }
+
+    .menu-movil .enlaces-menu a {
+        text-align: center;
+        margin: 0 !important;
+        font-size: 32px;
+    }
+
+    .menu-movil .interruptor-tema {
+        margin: 0 auto;
+    }
+
+    .x-claro {
+        width: 50px;
+        margin-left: auto;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .x-oscuro {
+        display: none;
+        width: 50px;
+        margin-left: auto;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .oscuro .x-oscuro {
+        display: block;
+    }
+
+    .oscuro .x-claro {
+        display: none;
+    }
+
+    .menu-claro {
+        width: 50px;
+        margin-left: auto;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .menu-oscuro {
+        display: none;
+        width: 50px;
+        margin-left: auto;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .oscuro .menu-oscuro {
+        display: block;
+    }
+
+    .oscuro .menu-claro {
+        display: none;
+    }
+
+    .boton-menu {
+        display: block;
+    }
+
+    .contenedor {
+        flex-direction: column;
+    }
+
+    .contenedor-texto {
+        width: 100%;
+    }
+
+    .contenedor-img {
+        width: 100%;
+    }
+}
